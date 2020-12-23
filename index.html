@@ -2,52 +2,117 @@
 <html lang="en">
 
 <head>
-  <title>CUE Editor</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+
+  <title>CUE Editor</title>
 </head>
 
 <body>
-  <!-- timer -->
-  <div id="timerdiv">
-    <button id="starttimerbutton" onclick="startTimer()">Start timer</button><br>
-    <button id="pausetimerbutton" onclick="pauseTimer()">Pause timer</button><br>
-    <p id="timerDisplay">00:00:00</p>
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <!-- timer -->
+        <div id="timerdiv" class="card m-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center fs-4">
+                <span id="timerDisplay" class="align-middle">00:00:00</span>
+              </div>
+              <div class="col-4">
+                <button id="starttimerbutton" class="btn btn-light" onclick="startTimer()">Start timer</button>
+              </div>
+              <div class="col-4">
+                <button id="pausetimerbutton" class="btn btn-light" onclick="pauseTimer()">Pause timer</button><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- header form -->
-  <div id="headerdiv">
-    <label for="performer">Performer:</label>
-    <input type="text" name="performer" id="performer"><br>
 
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title"><br>
+    <div class="row">
+      <div class="col">
+        <!-- header form -->
+        <div id="headerdiv" class="card m-3">
+          <div class="card-header">
+            Set
+          </div>
+          <div class="card-body">
+            <p>
+              <label for="performer" class="form-label">Performer</label>
+              <input class="form-control" type="text" name="performer" id="performer" >
+            </p>
+            <p>
+              <label for="title" class="form-label">Title</label>
+              <input class="form-control"  type="text" name="title" id="title">
+            </p>
+            <p>
+              <label for="file" class="form-label">File</label>
+              <input class="form-control"  type="text" name="file" id="file">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <label for="file">File:</label>
-    <input type="text" name="file" id="file"><br>
-  </div>
 
-  <!-- song form -->
-  <div id="songdiv">
-    <label for="performer">Performer:</label>
-    <input type="text" name="performer" id="songperformer"><br>
+    <div class="row">
+      <div class="col">
+        <!-- song form -->
+        <div id="songdiv" class="card m-3">
+          <div class="card-header">
+            Track
+          </div>
+          <div class="card-body">
+            <p>
+              <label for="songperformer" class="form-label">Performer</label>
+              <input class="form-control"  type="text" name="performer" id="songperformer">
+            </p>
 
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="songtitle"><br>
+            <p>
+              <label for="songtitle" class="form-label">Title</label>
+              <input class="form-control"  type="text" name="title" id="songtitle">
+            </p>
 
-    <button onclick="addSong()">Add song</button><br>
-  </div>
+            <button class="btn btn-light" onclick="addSong()">Add song</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- song list -->
-  <div id="songlistdiv">
-    <div id="songlist"></div>
-    <button onclick="clearList()">Clear list</button><br>
-  </div>
 
-  <!-- download link -->
-  <div id="downloaddiv">
-    <button onclick="download()">Download</button>
+    <div class="row">
+      <div class="col">
+        <!-- song list -->
+        <div id="songlistdiv" class="card m-3">
+          <div class="card-body">
+            <ul id="songlist" class="list-group list-group-flush"></ul>
+            <button class="btn btn-danger" onclick="clearList()">Clear list</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <!-- download link -->
+        <div id="downloaddiv" class="card m-3">
+          <div class="card-body">
+            <button class="btn btn-success w-100" onclick="download()">Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="moment.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   <script src="cueeditor.js"></script>
 </body>

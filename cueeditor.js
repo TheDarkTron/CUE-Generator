@@ -21,14 +21,12 @@ if (Array.isArray(JSON.parse(localStorage.getItem('songList')))) {
 }
 
 function addSongHtml(time, performer, title) {
-  let songString = document.createElement('p');
-  songString.innerText = time + " - " + performer + " - " + title;
+  let song = document.createElement('li');
+  song.classList.add('list-group-item');
+  song.innerText = time + " " + performer + " - " + title;
 
-  let song = document.createElement('div');
-  song.setAttribute('class', 'song');
-  song.appendChild(songString);
-
-  document.getElementById('songlist').appendChild(song);
+  let songlisthtml = document.getElementById('songlist')
+  songlisthtml.insertBefore(song, songlisthtml.firstChild);
 }
 
 function addSong() {
