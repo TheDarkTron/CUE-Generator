@@ -7,6 +7,17 @@ let pauseTime;
 if (Array.isArray(JSON.parse(localStorage.getItem('songList')))) {
   songlist = JSON.parse(localStorage.getItem('songList'));
   songlist.forEach(song => addSongHtml(song.time, song.performer, song.title));
+
+  start = moment(JSON.parse(localStorage.getItem('start')));
+
+  let duration = moment.duration(moment().diff(start));
+  let time = pad(duration.hours(), 2) + ":" + pad(duration.minutes(), 2) + ":" + pad(duration.seconds(), 2);
+  document.getElementById("timerDisplay").innerHTML = time;
+
+  document.getElementById('starttimerbutton').textContent = 'Restart timer';
+
+  timerRunning = true;
+  pauseTimer();
 }
 
 function addSongHtml(time, performer, title) {
@@ -24,8 +35,7 @@ function addSong() {
   // add html
   let songtitle = document.getElementById('songtitle').value;
   let songperformer = document.getElementById('songperformer').value;
-  let duration = moment.duration(moment().diff(start));
-  let time = pad(duration.hours(), 2) + ":" + pad(duration.minutes(), 2) + ":" + pad(duration.seconds(), 2);
+  let time = document.getElementById('timerDisplay').textContent;
 
   addSongHtml(time, songperformer, songtitle);
 
@@ -81,16 +91,19 @@ function download() {
 }
 
 function startTimer() {
+  document.getElementById("timerDisplay").innerHTML = "00:00:00";
   start = moment();
+  localStorage.setItem('start', JSON.stringify(start));
 
+  clearInterval(timer);
   timer = setInterval(function() {
     let duration = moment.duration(moment().diff(start));
     let time = pad(duration.hours(), 2) + ":" + pad(duration.minutes(), 2) + ":" + pad(duration.seconds(), 2);
     document.getElementById("timerDisplay").innerHTML = time;
-    localStorage.setItem('start', JSON.stringify(start));
   }, 1000);
 
   document.getElementById('starttimerbutton').textContent = 'Restart timer';
+  document.getElementById('pausetimerbutton').textContent = 'Pause timer';
 
   timerRunning = true;
 }
@@ -103,23 +116,35 @@ function pauseTimer() {
     document.getElementById('pausetimerbutton').textContent = 'Continue timer';
     timerRunning = false;
   } else {
-    start.add(moment.duration(moment().diff(pauseTime)));
-
-    timer = setInterval(function() {
-      let duration = moment.duration(moment().diff(start));
-      let time = pad(duration.hours(), 2) + ":" + pad(duration.minutes(), 2) + ":" + pad(duration.seconds(), 2);
-      document.getElementById("timerDisplay").innerHTML = time;
-      localStorage.setItem('start', JSON.stringify(start));
-    }, 1000);
-
-    document.getElementById('pausetimerbutton').textContent = 'Pause timer';
-    timerRunning = true;
+    restartTimer();
   }
 }
 
+function restartTimer() {
+  start.add(moment.duration(moment().diff(pauseTime)));
+
+  localStorage.setItem('start', JSON.stringify(start));
+
+  timer = setInterval(function() {
+    let duration = moment.duration(moment().diff(start));
+    let time = pad(duration.hours(), 2) + ":" + pad(duration.minutes(), 2) + ":" + pad(duration.seconds(), 2);
+    document.getElementById("timerDisplay").innerHTML = time;
+  }, 1000);
+
+  document.getElementById('pausetimerbutton').textContent = 'Pause timer';
+  timerRunning = true;
+}
+
 function clearList() {
+  // clear song list
   localStorage.setItem('songList', JSON.stringify([]));
   document.getElementById('songlist').innerHTML = "";
+
+  // clear timer
+  clearInterval(timer);
+  document.getElementById("timerDisplay").textContent = "00:00:00";
+
+  timerRunning = false;
 }
 
 function pad(n, width, z) {
