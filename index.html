@@ -14,10 +14,18 @@
 
 <body>
   <div class="container">
+
+    <div class="row">
+      <div class="col">
+        <h1 id="title" >CUE Generator</h1>
+      </div>
+    </div>
+
+
     <div class="row">
       <div class="col">
         <!-- timer -->
-        <div id="timerdiv" class="card m-3">
+        <div id="timerdiv" class="card mt-3">
           <div class="card-body">
             <div class="row">
               <div class="col-4 text-center fs-4">
@@ -35,11 +43,37 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col">
+        <!-- song form -->
+        <div id="songdiv" class="card mt-3">
+          <div class="card-header">
+            Tracks
+          </div>
+          <div class="card-body">
+            <p>
+              <label for="songperformer" class="form-label">Performer</label>
+              <input class="form-control"  type="text" name="performer" id="songperformer">
+            </p>
+
+            <p>
+              <label for="songtitle" class="form-label">Title</label>
+              <input class="form-control"  type="text" name="title" id="songtitle">
+            </p>
+
+            <button class="btn btn-light" onclick="addSong()">Add song</button>
+
+            <ul id="songlist" class="list-group list-group-flush mb-3 mt-3"></ul>
+            <button id="clearBtn" class="btn btn-danger justify-content-end" onclick="clearList()">Clear list</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col">
         <!-- header form -->
-        <div id="headerdiv" class="card m-3">
+        <div id="headerdiv" class="card mt-3">
           <div class="card-header">
             Set
           </div>
@@ -61,49 +95,10 @@
       </div>
     </div>
 
-
-    <div class="row">
-      <div class="col">
-        <!-- song form -->
-        <div id="songdiv" class="card m-3">
-          <div class="card-header">
-            Track
-          </div>
-          <div class="card-body">
-            <p>
-              <label for="songperformer" class="form-label">Performer</label>
-              <input class="form-control"  type="text" name="performer" id="songperformer">
-            </p>
-
-            <p>
-              <label for="songtitle" class="form-label">Title</label>
-              <input class="form-control"  type="text" name="title" id="songtitle">
-            </p>
-
-            <button class="btn btn-light" onclick="addSong()">Add song</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col">
-        <!-- song list -->
-        <div id="songlistdiv" class="card m-3">
-          <div class="card-body">
-            <ul id="songlist" class="list-group list-group-flush"></ul>
-            <button class="btn btn-danger" onclick="clearList()">Clear list</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <div class="row">
       <div class="col">
         <!-- download link -->
-        <div id="downloaddiv" class="card m-3">
+        <div id="downloaddiv" class="card mt-3">
           <div class="card-body">
             <button class="btn btn-success w-100" onclick="download()">Download</button>
           </div>
