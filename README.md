@@ -12,4 +12,4 @@ A .cue file is a simple text file. If you make any mistake, you can edit the dow
 
 ## Screenshot
 
-![CUE Generator Screenshot](doc/CUE Generator.png)
+![CUE Generator Screenshot](doc/CUE-Generator.png)
