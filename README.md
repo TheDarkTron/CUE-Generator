@@ -9,3 +9,7 @@
 - Click download to download your .cue file
 
 A .cue file is a simple text file. If you make any mistake, you can edit the downloaded file with a simple text editor.
+
+## Screenshot
+
+![CUE Generator Screenshot](doc/CUE Generator.png)
