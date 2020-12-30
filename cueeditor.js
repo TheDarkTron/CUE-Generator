@@ -57,9 +57,9 @@ function download() {
   // build file in memory
   let result = "";
 
-  let performer = document.getElementById('performer').value;
-  let title = document.getElementById('title').value;
-  let file = document.getElementById('file').value;
+  let performer = document.getElementById('setPerformer').value;
+  let title = document.getElementById('setTitle').value;
+  let file = document.getElementById('setFile').value;
 
   result += "REM created with DJ Rex CUE Editor\n";
   result += "PERFORMER \"" + performer + "\"\n";
