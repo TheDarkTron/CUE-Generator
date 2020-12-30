@@ -61,7 +61,7 @@ function download() {
   let title = document.getElementById('setTitle').value;
   let file = document.getElementById('setFile').value;
 
-  result += "REM created with DJ Rex CUE Editor\n";
+  result += "REM created with DJ Rex CUE Generator\n";
   result += "PERFORMER \"" + performer + "\"\n";
   result += "TITLE \"" + title + "\"\n";
   result += "FILE \"" + file + "\"\n";
