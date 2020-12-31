@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
     - 'doc/**'
+    - README.md
 jobs:
   rsync:
     runs-on: ubuntu-latest
@@ -20,7 +21,7 @@ jobs:
 
         VERBOSE: true
         USER: ubuntu
-        ARGS: -az --exclude=/.git/ --exclude=/.github/ --exclude=/doc/
+        ARGS: -az --exclude=/.git/ --exclude=/.github/ --exclude=/doc/ --exclude=README.md
         #SSH_ARGS: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
         #SOURCE: ./public/
 
