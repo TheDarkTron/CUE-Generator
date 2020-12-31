@@ -26,7 +26,6 @@ jobs:
         #SOURCE: ./public/
 
         PRE_SCRIPT: |
-          ls -lh
           echo start at:
           date -u
         POST_SCRIPT: "echo done at: && date -u"
