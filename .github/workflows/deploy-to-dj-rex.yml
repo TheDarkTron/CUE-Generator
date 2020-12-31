@@ -20,12 +20,13 @@ jobs:
         TARGET: /var/www/html/
 
         VERBOSE: true
-        USER: ubuntu
+        USER: github
         ARGS: -az --exclude=/.git/ --exclude=/.github/ --exclude=/doc/ --exclude=README.md
         #SSH_ARGS: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
         #SOURCE: ./public/
 
         PRE_SCRIPT: |
+          ls -lh
           echo start at:
           date -u
         POST_SCRIPT: "echo done at: && date -u"
