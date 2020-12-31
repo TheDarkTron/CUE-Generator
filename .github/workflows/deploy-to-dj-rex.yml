@@ -17,7 +17,7 @@ jobs:
       env:
         HOST: dj-rex.de
         KEY: ${{secrets.DJREXPRIVATE}}
-        TARGET: /var/www/html/
+        TARGET: /var/www/html/cueGenerator
 
         VERBOSE: true
         USER: github
