@@ -7,18 +7,24 @@ on:
     paths-ignore:
     - 'doc/**'
 jobs:
-  check-bats-version:
+  rsync:
     runs-on: ubuntu-latest
     steps:
-      - name: rsync deployments
-        # You may pin to the exact commit or the version.
-        # uses: contention/rsync-deployments@980b08d70e94c4ac0169ee5c5acc9ace2fe8ccd4
-        env:
-          GITHUB_WORKSPACE: .
-        args: ["-avzr --delete", "--exclude .git --exclude .github --exclude /doc/", "github@dj-rex.de:/var/www/html/"]
-        secrets: ["DEPLOY_KEY"]
-        uses: contention/rsync-deployments@v1.0.0
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+    - uses: actions/checkout@v2
+    - name: Deploy to my ❤️
+      uses: up9cloud/action-rsync@v1.1
+      env:
+        HOST: dj-rex.de
+        KEY: ${{secrets.DEPLOY_SSH_KEY}}
+        TARGET: /var/www/html/
 
+        VERBOSE: true
+        USER: ubuntu
+        ARGS: -az --exclude=/.git/ --exclude=/.github/ --exclude=/doc/
+        #SSH_ARGS: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+        #SOURCE: ./public/
+
+        PRE_SCRIPT: |
+          echo start at:
+          date -u
+        POST_SCRIPT: "echo done at: && date -u"
