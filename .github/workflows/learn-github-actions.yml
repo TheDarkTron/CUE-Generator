@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: deploy-to-dj-rex
 on: 
   push:
     branches:
@@ -15,7 +15,7 @@ jobs:
       uses: up9cloud/action-rsync@v1.1
       env:
         HOST: dj-rex.de
-        KEY: ${{secrets.DEPLOY_SSH_KEY}}
+        KEY: ${{secrets.DJREXPRIVATE}}
         TARGET: /var/www/html/
 
         VERBOSE: true
