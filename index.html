@@ -2,121 +2,136 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
-  <title>CUE Editor</title>
+    <title>CUE Editor</title>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
     <div class="row">
-      <div class="col">
-        <h1 id="title" >CUE Generator</h1>
-      </div>
+        <div class="col">
+            <h1 id="title">CUE Generator</h1>
+        </div>
     </div>
 
 
     <div class="row">
-      <div class="col">
-        <!-- timer -->
-        <div id="timerdiv" class="card mt-3">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4 text-center fs-4">
-                <span id="timerDisplay" class="align-middle">00:00:00</span>
-              </div>
-              <div class="col-4">
-                <button id="starttimerbutton" class="btn btn-light" onclick="startTimer()">Start timer</button>
-              </div>
-              <div class="col-4">
-                <button id="pausetimerbutton" class="btn btn-light" onclick="pauseTimer()">Pause timer</button><br>
-              </div>
+        <div class="col">
+            <!-- timer -->
+            <div id="timerdiv" class="card mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3 text-center fs-4">
+                            <span id="timerDisplay" class="align-middle">000:00:000</span>
+                        </div>
+                        <div class="col-3">
+                            <button id="starttimerbutton" class="btn btn-light" onclick="startTimer()">Start timer
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <button id="pausetimerbutton" class="btn btn-light" onclick="pauseTimer()">Pause timer
+                            </button>
+                            <br>
+                        </div>
+                        <div class="col-3">
+                            <button id="stopTimerButton" class="btn btn-light" onclick="stopTimer()">Stop timer</button>
+                            <br>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <div class="row">
-      <div class="col">
-        <!-- song form -->
-        <div id="songdiv" class="card mt-3">
-          <div class="card-header">
-            Tracks
-          </div>
-          <div class="card-body">
-            <p>
-              <label for="songperformer" class="form-label">Performer</label>
-              <input class="form-control"  type="text" name="performer" id="songperformer">
-            </p>
+        <div class="col">
+            <!-- song form -->
+            <div id="songdiv" class="card mt-3">
+                <div class="card-header">
+                    Tracks
+                </div>
+                <div class="card-body">
+                    <p>
+                        <label for="songperformer" class="form-label">Performer</label>
+                        <input class="form-control" type="text" name="performer" id="songperformer">
+                    </p>
 
-            <p>
-              <label for="songtitle" class="form-label">Title</label>
-              <input class="form-control"  type="text" name="title" id="songtitle">
-            </p>
+                    <p>
+                        <label for="songtitle" class="form-label">Title</label>
+                        <input class="form-control" type="text" name="title" id="songtitle">
+                    </p>
 
-            <button class="btn btn-light" onclick="addSong()">Add song</button>
+                    <button class="btn btn-light" onclick="addSong()">Add song</button>
 
-            <ul id="songlist" class="list-group list-group-flush mb-3 mt-3"></ul>
-            <button id="clearBtn" class="btn btn-danger justify-content-end" onclick="clearList()">Clear list</button>
-          </div>
+                    <ul id="songlist" class="list-group list-group-flush mb-3 mt-3"></ul>
+                    <button id="clearBtn" class="btn btn-danger justify-content-end" onclick="clearList()">Clear list
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="row">
-      <div class="col">
-        <!-- header form -->
-        <div id="headerdiv" class="card mt-3">
-          <div class="card-header">
-            Set
-          </div>
-          <div class="card-body">
-            <p>
-              <label for="performer" class="form-label">Performer</label>
-              <input class="form-control" type="text" name="setPerformer" id="setPerformer" >
-            </p>
-            <p>
-              <label for="title" class="form-label">Title</label>
-              <input class="form-control" type="text" name="setTitle" id="setTitle">
-            </p>
-            <p>
-              <label for="file" class="form-label">File</label>
-              <input class="form-control" type="text" name="setFile" id="setFile">
-            </p>
-          </div>
+        <div class="col">
+            <!-- header form -->
+            <div id="headerdiv" class="card mt-3">
+                <div class="card-header">
+                    Set
+                </div>
+                <div class="card-body">
+                    <p>
+                        <label for="performer" class="form-label">Performer</label>
+                        <input class="form-control" type="text" name="setPerformer" id="setPerformer">
+                    </p>
+                    <p>
+                        <label for="title" class="form-label">Title</label>
+                        <input class="form-control" type="text" name="setTitle" id="setTitle">
+                    </p>
+                    <p>
+                        <label for="file" class="form-label">File</label>
+                        <input class="form-control" type="text" name="setFile" id="setFile">
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="row">
-      <div class="col">
-        <!-- download link -->
-        <div id="downloaddiv" class="card mt-3">
-          <div class="card-body">
-            <button class="btn btn-success w-100" onclick="download()">Download</button>
-          </div>
+        <div class="col">
+            <!-- download link -->
+            <div id="downloaddiv" class="card mt-3">
+                <div class="card-body">
+                    <button class="btn btn-success w-100" onclick="download()">Download</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
     <div class="row">
-      <div class="col mt-3">
-        <!-- footer -->
-        <p id="footer" class="fw-lighter text-muted">Please help make me better! Submit issues at <a target="_blank" href="https://github.com/TheDarkTron/CUE-Generator">GitHub</a></p>
-      </div>
+        <div class="col mt-3">
+            <!-- footer -->
+            <p id="footer" class="fw-lighter text-muted">Please help make me better! Submit issues at
+                <a target="_blank"
+                   href="https://github.com/TheDarkTron/CUE-Generator">GitHub</a>
+            </p>
+        </div>
     </div>
 
-  </div>
+</div>
 
-  <script src="moment.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="cueeditor.js"></script>
+<script src="moment.js"></script>
+<script src="Timer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+<script src="CueGenerator.js"></script>
 </body>
