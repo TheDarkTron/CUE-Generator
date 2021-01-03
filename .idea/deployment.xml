@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="dj-rex.de">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/cueGenerator" local="$PROJECT_DIR$/src" web="/cueGenerator" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
