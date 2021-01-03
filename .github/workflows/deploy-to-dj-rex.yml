@@ -8,7 +8,7 @@ on:
     - 'doc/**'
     - README.md
 jobs:
-  rsync:
+  sftp:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,16 +18,16 @@ jobs:
       uses: wlixcc/SFTP-Deploy-Action@1.1
       with:
         # username
-        username: github
+        username: 'github'
         # your sftp server
-        server: dj-rex.de
+        server: 'dj-rex.de'
         # your sftp server port, default to 22
         port: 22 # default is 22
         # you can copy private_key from your *.pem file, keep format
         ssh_private_key: ${{secrets.DJREXPRIVATE}}
         # will put all file under this path
-        local_path: src/ # default is ./*
+        local_path: './src/*' # default is ./*
         # files will copy to under remote_path
-        remote_path: html/cueGenerator # default is /
+        remote_path: 'html/cueGenerator' # default is /
         # sftp args
         #args: # optional
