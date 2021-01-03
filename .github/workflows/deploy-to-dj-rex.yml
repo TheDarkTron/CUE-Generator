@@ -24,7 +24,7 @@ jobs:
         # your sftp server port, default to 22
         port: 22 # default is 22
         # you can copy private_key from your *.pem file, keep format
-        ssh-private-key: ${{secrets.DJREXPRIVATE}}
+        ssh_private_key: ${{secrets.DJREXPRIVATE}}
         # will put all file under this path
         local_path: './src/*' # default is ./*
         # files will copy to under remote_path
