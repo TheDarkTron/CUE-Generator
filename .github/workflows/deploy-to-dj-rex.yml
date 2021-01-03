@@ -20,7 +20,7 @@ jobs:
         # username
         username: github
         # your sftp server
-        server: dj-rex
+        server: dj-rex.de
         # your sftp server port, default to 22
         port: 22 # default is 22
         # you can copy private_key from your *.pem file, keep format
