@@ -1,3 +1,5 @@
+// CUE sheet definition: https://wiki.hydrogenaud.io/index.php?title=Cue_sheet
+
 let songList = [];
 let timer = new Timer(null, null);
 
