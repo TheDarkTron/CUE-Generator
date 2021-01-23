@@ -40,6 +40,6 @@ class Timer {
         let duration = this.getDuration();
         return pad(Math.floor(duration.asMinutes()), 3)
             + ":" + pad(duration.seconds(), 2)
-            + ":" + pad(duration.milliseconds(), 3);
+            + ":00";
     }
 }
