@@ -8,7 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 
     <title>CUE Editor</title>
 </head>
@@ -18,7 +17,7 @@
 
     <div class="row">
         <div class="col">
-            <h1 id="title">CUE Generator</h1>
+            <h1 class="display-1 text-center">CUE Generator</h1>
         </div>
     </div>
 
@@ -28,25 +27,14 @@
             <!-- timer -->
             <div id="timerdiv" class="card mt-3">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-3 text-center fs-4">
-                            <span id="timerDisplay" class="align-middle">000:00:00</span>
-                        </div>
-                        <div class="col-3">
-                            <button id="starttimerbutton" type="button" class="btn btn-light" onclick="startTimer()">
-                                Start
-                            </button>
-                        </div>
-                        <div class="col-3">
-                            <button id="pausetimerbutton" class="btn btn-light" onclick="pauseTimer()">
-                                Pause
-                            </button>
-                        </div>
-                        <div class="col-3">
-                            <button id="stopTimerButton" class="btn btn-light" onclick="stopTimer()">
-                                Stop
-                            </button>
-                        </div>
+                    <div class="d-flex flex-row justify-content-evenly align-items-center">
+                        <span id="timerDisplay" class="align-middle fs-3 fw-bold">000:00:00</span>
+                        <button id="pausetimerbutton" class="btn btn-light" onclick="pauseTimer()">
+                            Pause
+                        </button>
+                        <button id="stopTimerButton" class="btn btn-light" onclick="stopTimer()">
+                            Stop
+                        </button>
                     </div>
                 </div>
             </div>
@@ -74,7 +62,7 @@
                     <button class="btn btn-light" onclick="addSong()">Add song</button>
 
                     <ul id="songlist" class="list-group list-group-flush mb-3 mt-3"></ul>
-                    <button id="clearBtn" class="btn btn-danger justify-content-end" onclick="clearList()">Clear list
+                    <button class="btn btn-danger justify-content-end float-end" onclick="clearList()">Clear list
                     </button>
                 </div>
             </div>
@@ -121,7 +109,7 @@
     <div class="row">
         <div class="col mt-3">
             <!-- footer -->
-            <p id="footer" class="fw-lighter text-muted">Please help make me better! Submit issues at
+            <p class="fw-lighter text-muted text-center">Please help make me better! Submit issues at
                 <a target="_blank"
                    href="https://github.com/TheDarkTron/CUE-Generator">GitHub</a>
             </p>
