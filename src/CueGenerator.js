@@ -61,7 +61,7 @@ function clearSongFields() {
 function download() {
     let cueFile = generateCueFile();
 
-    let fileName = document.getElementById('setFile').value;
+    let fileName = document.getElementById('setFile').value || "cue sheet";
     downloadFile(cueFile, fileName);
 }
 
