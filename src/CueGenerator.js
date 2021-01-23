@@ -22,6 +22,8 @@ setInterval(function () {
 }, 333);
 
 function addSong() {
+    startTimer();
+
     // add html
     let time = document.getElementById('timerDisplay').textContent;
     let songPerformer = document.getElementById('songperformer').value;
