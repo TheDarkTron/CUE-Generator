@@ -90,7 +90,25 @@ function generateSetHeader(setPerformer, setTitle, setFile) {
     return "REM created with DJ Rex CUE Generator\n"
         + "PERFORMER \"" + setPerformer + "\"\n"
         + "TITLE \"" + setTitle + "\"\n"
-        + "FILE \"" + setFile + "\"\n";
+        + "FILE \"" + setFile + "\" " + getFileFormat(setFile) + "\n";
+}
+
+function getFileFormat(fileName) {
+    let type = fileName.split(".").reverse()[0].toLowerCase();
+    switch (type) {
+        case "wav":
+            return "WAVE";
+        case "mp3":
+            return "MP3";
+        case "aiff":
+            return "AIFF";
+        case "flac":
+            return "WAVE";
+        case "wv":
+            return "WAVE";
+        default:
+            return "MP3";
+    }
 }
 
 // create tmp download link, click it and remove it
