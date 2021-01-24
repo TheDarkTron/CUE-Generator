@@ -20,8 +20,8 @@ if (Array.isArray(JSON.parse(localStorage.getItem('songList')))) {
 }
 
 setInterval(function () {
-    document.getElementById("timerDisplay").innerHTML = timer.getTime();
-}, 333);
+    document.getElementById("timerDisplay").innerText = timer.getTime();
+}, 999);
 
 function addSong() {
     startTimer();
@@ -127,17 +127,28 @@ function downloadFile(fileContent, fileName) {
     document.body.removeChild(dlLink);
 }
 
+function toggleTimer() {
+    if (timer.isRunning()) {
+        pauseTimer();
+    } else {
+        startTimer();
+    }
+}
+
 function startTimer() {
+    document.querySelector("#playPauseTimerButton").innerText = "Pause";
     timer.play();
     saveTimer();
 }
 
 function pauseTimer() {
+    document.querySelector("#playPauseTimerButton").innerText = "Play";
     timer.pause();
     saveTimer();
 }
 
 function stopTimer() {
+    document.querySelector("#playPauseTimerButton").innerText = "Play";
     timer.stop();
     saveTimer();
 }
@@ -151,7 +162,7 @@ function clearList() {
     if (confirm('Clear the song list?')) {
         // clear song list
         localStorage.setItem('songList', JSON.stringify([]));
-        document.getElementById('songlist').innerHTML = "";
+        document.getElementById('songlist').innerText = "";
     }
 }
 

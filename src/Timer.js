@@ -14,7 +14,7 @@ class Timer {
     }
 
     pause() {
-        if (this.start !== null && this.pauseTime === null) { // only pause if timer is running
+        if (this.isRunning()) { // only pause if timer is running
             this.pauseTime = moment();
         }
     }
@@ -41,5 +41,9 @@ class Timer {
         return pad(Math.floor(duration.asMinutes()), 3)
             + ":" + pad(duration.seconds(), 2)
             + ":00";
+    }
+
+    isRunning() {
+        return this.start !== null && this.pauseTime === null;
     }
 }
