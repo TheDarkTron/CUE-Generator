@@ -161,8 +161,9 @@ function saveTimer() {
 function clearList() {
     if (confirm('Clear the song list?')) {
         // clear song list
-        localStorage.setItem('songList', JSON.stringify([]));
         document.getElementById('songlist').innerText = "";
+        songList = [];
+        localStorage.setItem('songList', JSON.stringify(songList));
     }
 }
 
